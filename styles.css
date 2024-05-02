@@ -1,0 +1,21 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: white;
+    background-color: black;
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.content {text-align: center;}
+h1 {letter-spacing: 15px;}
+h1, h2, p {font-weight: 300;}
+#ip-address {margin-bottom: 30px;}
+#public-ip {font-size: 36px;font-weight: bold;}
+
+
