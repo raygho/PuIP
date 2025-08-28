@@ -3,19 +3,105 @@ body, html {
     padding: 0;
     height: 100%;
     color: white;
-    background-color: black;
+    background: linear-gradient(135deg, #191970 0%, #003366 50%, #000000 100%);
     font-family: 'Roboto', sans-serif;
 }
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80vw;
+    height: 80vh;
+    background: radial-gradient(ellipse 65% 75% at center, #191970 0%, #003366 25%, #001122 50%, #000000 75%);
+    transform: translate(-50%, -50%) rotate(-12deg);
+    z-index: -1;
+    border-radius: 60% 40% 55% 45%;
+}
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
 }
-.content {text-align: center;}
-h1 {letter-spacing: 15px;}
-h1, h2, p {font-weight: 300;}
-#ip-address {margin-bottom: 30px;}
-#public-ip {font-size: 36px;font-weight: bold;}
+
+.content {
+    text-align: center;
+}
+
+h1 {
+    letter-spacing: 15px;
+}
+
+h1, h2, p {
+    font-weight: 300;
+}
+
+#ip-address {
+    margin-bottom: 30px;
+}
+
+#public-ip {
+    font-size: 36px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    cursor: help;
+}
+
+#public-ip:has-text("Loading...") {
+    animation: pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.error {
+    color: #ff6b6b !important;
+}
+
+.success {
+    color: #51cf66;
+}
+
+#retry-btn {
+    background-color: #ff6b6b;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#retry-btn:hover {
+    background-color: #ff5252;
+}
+
+#retry-btn:active {
+    transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+    #public-ip {
+        font-size: 28px;
+        letter-spacing: 8px;
+    }
+    
+    .container {
+        padding: 20px;
+    }
+    
+    body::before {
+        width: 85vw;
+        height: 90vh;
+    }
+}
 
 
